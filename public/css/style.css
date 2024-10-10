@@ -1,0 +1,431 @@
+/* ------------------------ CSS RESET -------------------------- */
+/* ------------------------------------------------------------- */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* Set core body defaults */
+body {
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: system-ui;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+a,
+ul,
+ol {
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    /* *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    } */
+}
+
+/* -------------------- END CSS RESET -------------------------- */
+/* ------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+
+:root {
+    --ff-primary: "Poppins", sans-serif;
+
+    --font-size-2xs: 0.625rem;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.75rem;
+    --font-size-4xl: 2rem;
+    --font-size-5xl: 2.25rem;
+    --font-size-6xl: 2.5rem;
+    --font-size-7xl: 3rem;
+    --font-size-8xl: 3.5rem;
+    --font-size-9xl: 4rem;
+    --font-size-10xl: 4.5rem;
+    --font-size-11xl: 5rem;
+    --font-size-12xl: 6rem;
+
+    --border-radius: 5px;
+
+    --btn-primary-color: ;
+    --btn-secondary-color: ;
+
+    --max-width: 1000px;
+    --gradient: ;
+
+}
+
+body {
+    font-family: var(--ff-primary);
+    font-size: var(--font-size-md);
+    background-color: #191825;
+    color: #EEEEEE;
+}
+
+.page__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    margin-bottom: 6rem;
+}
+
+/* ---------------------- HEADER STYLING ----------------------- */
+/* ------------------------------------------------------------- */
+.header__logo {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: #EEEEEE;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    height: 5rem;
+    background-color: #090067;
+}
+
+.header__nav ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+}
+
+.header__nav ul li {
+    cursor: pointer;
+}
+
+.header__nav ul li:hover {
+    text-decoration: underline;
+}
+
+/* ---------------------- END HEADER STYLING ------------------- */
+/* ------------------------------------------------------------- */
+
+/* -------------------------- MAIN STYLING --------------------- */
+/* ------------------------------------------------------------- */
+.author__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 4rem;
+    gap: .5rem;
+}
+
+.author__heading {
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+}
+
+.author__body {
+    font-size: var(--font-size-lg);
+}
+
+.main__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.main__section form {
+    font-size: var(--font-size-xl);
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    border-radius: var(--border-radius);
+    padding: .2rem .4rem;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+
+select {
+    background-color: grey;
+    color: #EEEEEE;
+    cursor: pointer;
+}
+
+.card__container {
+    display: grid;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    position: relative;
+}
+
+@media (width > 768px) {
+    .card__container {
+        grid-template-columns: 300px 300px;
+    }
+}
+
+.card-image {
+    width: 300px;
+    height: 450px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 13px;
+}
+
+
+/* CARD FLIP  */
+.card__flip__container {
+    width: 300px;
+    height: 450px;
+    perspective: 1000px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform .3s ease-in-out;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1),
+        0 6px 6px rgba(0, 0, 0, 0.1)
+}
+
+.card-front,
+.card-back {
+    box-shadow: 0 0 5px 2px black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 13px;
+}
+
+.card-back {
+    transform: rotateY(0deg);
+    background-image: url("../img/BACK-FACE-CARD-IMAGE.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* END CARD FLIP  */
+
+/* ANIMATED BORDER FOR CARD */
+.wrapper {
+    position: relative;
+    padding: 3px;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.wrapper::after,
+.wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 140px;
+    border-radius: 13px;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+    animation: 3s spin linear infinite;
+}
+
+.wrapper::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+/* END ANIMATED BORDER FOR CARD */
+
+
+.card__info__container {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    background-color: #252525;
+    border-radius: 10px;
+    height: 450px;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1),
+        0 6px 6px rgba(0, 0, 0, 0.1) */
+}
+
+::-webkit-scrollbar {
+    width: .5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 5px solid purple;
+    border-radius: 6rem;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 100vw;
+}
+
+.card__info__content {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 255px;
+    gap: 1rem;
+}
+
+.card__info__text {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.info__text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1rem;
+    gap: .5rem;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__info__container h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.card__info__content p {
+    font-size: var(--font-size-md);
+    font-weight: 400;
+}
+
+.info__title span,
+.info__text span {
+    font-size: var(--font-size-md);
+    color: green;
+}
+
+.info__body {
+    color: rgb(0, 179, 255);
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    height: 2rem;
+    font-weight: 500;
+    font-size: var(--font-size-lg);
+    color: green;
+}
+
+
+/* ------------------------- FOOTER STYLES --------------------- */
+/* ------------------------------------------------------------- */
+.footer {
+    background-color: #090067;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    bottom: 0;
+}

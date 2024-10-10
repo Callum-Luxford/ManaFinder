@@ -1,0 +1,131 @@
+<div class="author__container">
+    <h1 class="author__heading">Hi, I am Callum,</h1>
+    <p class="author__body">Welcome to ManaFinder</p>
+</div>
+
+<div class="main__section">
+    <!-- <h1>Magic: The Gathering Card Finder</h1> -->
+
+    <form action="/getCard" method="POST" id="cardForm">
+        <label for="cardType" id="cardType">Select type:</label>
+        <select name="cardType" id="cardType">
+            <option value="creature" <%=cardType==='creature' ? 'selected' : '' %>>Creature</option>
+            <option value="instant" <%=cardType==='instant' ? 'selected' : '' %>>Instant</option>
+            <option value="sorcery" <%=cardType==='sorcery' ? 'selected' : '' %>>Sorcery</option>
+            <option value="artifact" <%=cardType==='artifact' ? 'selected' : '' %>>Artifact</option>
+            <option value="enchantment" <%=cardType==='enchantment' ? 'selected' : '' %>>Enchantment</option>
+        </select>
+        <button class="btn" type="submit">Random Card</button>
+    </form>
+
+    <div class="loading">
+        <div id="loading" style="display: none;">
+            Loading...
+        </div>
+    </div> <!-- Loading indicator -->
+
+    <% if (locals.message) { %>
+        <p>
+            <%= message %>
+        </p>
+        <% } else if (card) { %>
+            <div class="card__container">
+
+                <!-- Card Flip Container -->
+                <div class="card__flip__container">
+                    <div class="card" id="card">
+                        <div class="card-image card-front">
+                            <img id="image" src="<%= card.imageUrl %>" alt="<%= card.name %>">
+                        </div>
+                        <div class="card-back">
+                            <img src="/PUBLIC API CAPSTONE/public/img/BACK-FACE-CARD-IMAGE.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <!-- Right section: Card Details -->
+                    <div class="card__info__container">
+                        <div class="card__info__content">
+                            <h2>
+                                <%= card.name %>
+                            </h2>
+                            <div class="card__info__text">
+
+                                <div class="details">
+                                    <p class="info__title">
+                                        <span>Mana Cost:</span>
+                                    </p>
+                                    <p class="info__body">
+                                        <%= card.manaCost %>
+                                    </p>
+                                </div>
+
+                                <div class="details">
+                                    <p class="info__title">
+                                        <span>Type:</span>
+                                    </p>
+                                    <p class="info__body">
+                                        <%= card.type %>
+                                    </p>
+                                </div>
+
+                                <div class="details">
+                                    <p class="info__title">
+                                        <span>Set:</span>
+                                    </p>
+                                    <p class="info__body">
+                                        <%= card.setName %>
+                                    </p>
+                                </div>
+
+                                <div class="details">
+                                    <p class="info__title">
+                                        <span>Rarity:</span>
+                                    </p>
+                                    <p class="info__body">
+                                        <%= card.rarity %>
+                                    </p>
+                                </div>
+
+                                <div class="details">
+                                    <p class="info__title">
+                                        <span>Power/Toughness:</span>
+                                    </p>
+                                    <p class="info__body">
+                                        <%= card.power %> / <%= card.toughness %>
+                                    </p>
+                                </div>
+
+                                <div class="info__text">
+                                    <p class="text">
+                                        <span>Text:</span>
+                                    </p>
+                                    <p class="info__body">
+                                        <%= card.text %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+<% } %>
+
+    </div>
+
+    <script>
+        const card = document.getElementById("card");
+
+        document.getElementById("cardForm").onsubmit = function () {
+            document.getElementById("loading").style.display = "block"; // Show loading indicator
+            card.classList.remove('flipped'); // Flip the card to the back
+        };
+
+        const cardImage = document.getElementById('image');
+
+        cardImage.addEventListener('load', () => {
+            card.classList.add('flipped');
+        })
+    </script>
