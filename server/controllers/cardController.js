@@ -10,7 +10,7 @@ let lastCardType = null; // Variable to store the last selected card type
 let cardBatch = []; // Variable to store the current batch of cards
 
 const getCardByType = async (req, res) => {
-  const cardType = req.body.cardType; // Get the selected card type
+  const cardType = req.body.cardType || "creature";
   console.log("Selected card type:", cardType); // Debug log
 
   // Check if the selected card type is different from the last one
