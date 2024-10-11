@@ -128,8 +128,9 @@
             };
 
             const cardImage = document.getElementById('image');
-
             cardImage.addEventListener('load', () => {
-                card.classList.add('flipped');
+                setTimeout(() => {
+                    card.classList.add('flipped');
+                }, 100);
             })
         </script>
