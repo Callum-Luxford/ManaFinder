@@ -130,7 +130,9 @@
             const cardImage = document.getElementById('image');
             cardImage.addEventListener('load', () => {
                 setTimeout(() => {
+                    console.log("Image loaded");
                     card.classList.add('flipped');
-                }, 100);
+                    console.log("Card flipped");
+                }, 300);
             })
         </script>
