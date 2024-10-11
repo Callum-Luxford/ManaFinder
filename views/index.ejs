@@ -39,10 +39,11 @@
                     <div class="card__flip__container">
                         <div class="card" id="card">
                             <div class="card-image card-front">
-                                <img id="image" src="<%= card.imageUrl %>" alt="<%= card.name %>">
+                                <img id="image" src="<%= card.imageUrl %>?<%= new Date().getTime() %>"
+                                    alt="<%= card.name %>">
                             </div>
                             <div class="card-back">
-                                <img src="/PUBLIC API CAPSTONE/public/img/BACK-FACE-CARD-IMAGE.jpg" alt="">
+                                <img src="../img/BACK-FACE-CARD-IMAGE.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -118,21 +119,3 @@
     <% } %>
 
         </div>
-
-        <script>
-            const card = document.getElementById("card");
-
-            document.getElementById("cardForm").onsubmit = function () {
-                document.getElementById("loading").style.display = "block"; // Show loading indicator
-                card.classList.remove('flipped'); // Flip the card to the back
-            };
-
-            const cardImage = document.getElementById('image');
-            cardImage.addEventListener('load', () => {
-                setTimeout(() => {
-                    console.log("Image loaded");
-                    card.classList.add('flipped');
-                    console.log("Card flipped");
-                }, 300);
-            })
-        </script>

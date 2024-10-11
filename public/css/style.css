@@ -267,10 +267,16 @@ select {
 
 .card-back {
     transform: rotateY(0deg);
-    background-image: url("../img/BACK-FACE-CARD-IMAGE.jpg");
+    /* background-image: url("../img/BACK-FACE-CARD-IMAGE.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.card-back img {
+    transform: rotateY(0deg);
+    height: 100%;
+    width: 100%;
+    border-radius: 13px;
 }
 
 .card-front {
