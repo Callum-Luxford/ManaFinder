@@ -109,12 +109,14 @@ svg {
     --max-width: 1000px;
     --gradient: ;
 
+    --footer-header-clr: #000000;
+
 }
 
 body {
     font-family: var(--ff-primary);
     font-size: var(--font-size-md);
-    background-color: #191825;
+    background-color: #141414;
     color: #EEEEEE;
 }
 
@@ -139,7 +141,7 @@ body {
     align-items: center;
     padding: 0px 20px;
     height: 5rem;
-    background-color: #090067;
+    background-color: var(--footer-header-clr);
 }
 
 .header__nav ul {
@@ -251,8 +253,8 @@ select {
     position: relative;
     transition: transform .3s ease-in-out;
     transform-style: preserve-3d;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1),
-        0 6px 6px rgba(0, 0, 0, 0.1)
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1),
+        0 6px 6px rgba(0, 0, 0, 0.1) */
 }
 
 .card-front,
@@ -427,11 +429,12 @@ select {
 /* ------------------------- FOOTER STYLES --------------------- */
 /* ------------------------------------------------------------- */
 .footer {
-    background-color: #090067;
+    background-color: var(--footer-header-clr);
     height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     bottom: 0;
+    position: fixed;
 }
